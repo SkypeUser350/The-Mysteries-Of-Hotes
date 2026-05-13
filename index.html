@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Mysteries of Hotes</title>
+  <style>
+    body { background-color: #0d1117; color: #ffbc42; font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+    #screen { border: 3px solid #ffbc42; background: #010409; padding: 20px; border-radius: 8px; box-shadow: 0 0 20px rgba(255,188,66,0.2); width: 650px; }
+    #hud { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: bold; border-bottom: 1px solid #21262d; padding-bottom: 10px; color: #ffbc42; }
+    #grid { position: relative; width: 600px; height: 240px; border: 1px solid #30363d; overflow: hidden; background: linear-gradient(rgba(255,188,66,0.03) 1px, transparent 1px); background-size: 100% 80px; }
+    .lane { height: 80px; width: 100%; position: relative; border-bottom: 1px dashed #21262d; box-sizing: border-box; }
+    .sprite { position: absolute; width: 50px; height: 50px; top: 15px; transition: left 0.1s linear; cursor: crosshair; }
+    .defense { filter: sepia(1) saturate(5) hue-rotate(10deg); } 
+    .virus { filter: sepia(1) saturate(5) hue-rotate(300deg); animation: flicker 0.5s infinite alternate; } 
+    @keyframes flicker { from { opacity: 0.8; } to { opacity: 1; filter: sepia(1) saturate(5) hue-rotate(300deg) drop-shadow(0 0 8px #ff3333); } }
+    #shop { margin-top: 15px; display: flex; gap: 10px; justify-content: center; }
+    button { background: #21262d; border: 1px solid #30363d; color: #c9d1d9; padding: 10px 15px; font-family: inherit; cursor: pointer; border-radius: 6px; }
+    button:hover { background: #30363d; border-color: #ffbc42; color: #ffbc42; }
+    button:active { background: #ffbc42; color: #000; }
+    #next-btn { background: #ffbc42; color: black; font-weight: bold; display: none; margin: 15px auto 0 auto; }
+  </style>
+</head>
+<body>
+
+<div id="screen">
+  <div id="hud">
+    <span>[HOTES-OS]: SECTOR_<span id="dir-ui">01</span>/100</span>
+    <span>[DATA]: <span id="ram-ui">50</span>kb</span>
+    <span>[CORE_INTEGRITY]: <span id="hp-ui">100</span>%</span>
+  </div>
+
+  <div id="grid">
+    <div class="lane" id="lane-0" onclick="placeDefense(0)"></div>
+    <div class="lane" id="lane-1" onclick="placeDefense(1)"></div>
+    <div class="lane" id="lane-2" onclick="placeDefense(2)"></div>
+  </div>
+
+  <div id="shop">
+    <button onclick="selectTool('wall')">Deploy HotesShield (20kb)</button>
+    <button onclick="selectTool('turret')">Deploy Deleter (40kb)</button>
+  </div>
+  
+  <button id="next-btn" onclick="startNextDirectory()">BOOT NEXT SECTOR</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

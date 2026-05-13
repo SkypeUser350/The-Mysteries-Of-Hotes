@@ -1,0 +1,11 @@
+{
+  "viruses": [
+    { "name": "HotesGlitch.exe", "img": "icons8.com", "hp": 30, "speed": 1.5, "bounty": 10 },
+    { "name": "MemoryLeak.sys", "img": "icons8.com", "hp": 15, "speed": 3.0, "bounty": 15 },
+    { "name": "Overclock.dll", "img": "icons8.com", "hp": 70, "speed": 0.8, "bounty": 30 }
+  ],
+  "defenses": [
+    { "id": "wall", "name": "HotesShield", "img": "icons8.com", "cost": 20, "hp": 150 },
+    { "id": "turret", "name": "Deleter", "img": "icons8.com", "cost": 40, "hp": 40 }
+  ]
+}
